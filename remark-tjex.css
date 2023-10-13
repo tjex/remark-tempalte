@@ -1,3 +1,6 @@
+/* color, spacing, layout, etc almost fully borrowed from 
+ * the excellent work of those behind Pico CSS: https://picocss.com/
+ */
 :root {
   --font-family: system-ui, -apple-system, "Segoe UI", "Helvetica", "Roboto", "Ubuntu",
     "Cantarell", "Oxygen-Sans", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
@@ -14,8 +17,10 @@
   --block-spacing-horizontal: var(--spacing);
   --transition: 0.2s ease-in-out;
   --modal-overlay-backdrop-filter: blur(0.25rem);
-  --background-color: #2c373f;
-  --color: hsl(205, 16%, 67%);
+  --background-color: hsl(205, 17%, 20%);
+  --background-color-darker: hsl(205, 17%, 10%);
+  --color: hsl(205, 16%, 80%);
+  --red: hsl(0, 50%, 60%);
   --h1-color: hsl(205, 20%, 74%);
   --h2-color: #b3c2cc;
   --h3-color: hsl(205, 18%, 76%);
@@ -69,143 +74,158 @@
   --code-comment-color: #4d606d;
 }
 
-.remark-code {
-    font-size: var(--code-size);
+body {
+  font-family: var(--font-family);
+  color: var(--color)
 }
 
 .remark-slide-content {
-  background-color: var(--background-color);
-  font-size: var(--font-size);
+    background-color: var(--background-color);
 }
-
-
-body {
-  background-color: var(--background-color);
-  color: #ddd;
-  font-family: Inter Medium;
+h1,
+h2,
+h3 {
+  font-family: var(--font-family);
+  font-weight: 400;
+  margin-bottom: 0;
+  color: var(--h1-color);
 }
-
-.remark-slide-content h1, h2, h3, h4 {
-  padding-bottom: 2rem;
-}
-
 .remark-slide-content h1 {
-  font-size: 4rem;
+  font-size: 3em;
+  color: var(--h1-color);
 }
-
 .remark-slide-content h2 {
-    font-size: 3rem;
+  font-size: 2em;
+  color: var(--h2-color);
 }
-
-.remark-slide-contenth3 { 
-  font-size: 2rem; 
+.remark-slide-content h3 {
+  font-size: 1.6em;
+  color: var(--h3-color);
+}
+.footnote {
+  position: absolute;
+  bottom: 3em;
 }
 
 ul li {
   list-style-type: "―";
   padding-left: 0.6rem;
+  line-height: 1.25em;
 }
 
 ol li {
   margin-left: 1.35rem;
   padding-left: 0.4rem;
 }
-
-pre code {
-  color: var(--color);
-  font-size: 1rem;
-  font-family: Hack Nerd Font Mono;
+.red {
+  color: var(--red);
 }
-
-.keyword {
-  color: #0086b3 !important;
-  font-weight: inherit !important;
+.large {
+  font-size: 2em;
 }
-
-.tag {
-  color: #900 !important;
-}
-
-code {
-  background-color: var(--code-background-color);
-  color: var(--code-color);
-}
-
-pre,
-code,
-kbd,
-samp {
-  font-size: 0.875em;
-  font-family: var(--font-family);
-}
-
-pre {
-  -ms-overflow-style: scrollbar;
-  overflow: auto;
-}
-
-pre,
-code,
-kbd {
-  border-radius: var(--border-radius);
-  background: var(--code-background-color);
-  color: var(--code-color);
-  font-weight: var(--code-weight);
-  line-height: initial;
-}
-
-code,
-kbd {
-  display: inline-block;
-  padding: 0.25rem 0.5rem;
-}
-
-pre {
-  display: block;
-  margin-bottom: var(--spacing);
-  overflow-x: auto;
-}
-pre > code {
-  display: block;
-  padding: var(--spacing);
-  background: none;
-  font-size: 14px;
-  line-height: var(--line-height);
-}
-
-code b {
-  color: var(--code-tag-color);
-  font-weight: var(--code-weight);
-}
-code i {
-  color: var(--code-property-color);
-  font-style: normal;
-}
-code u {
-  color: var(--code-value-color);
+a,
+a > code {
+  color: var(--primary);
   text-decoration: none;
 }
-code em {
-  color: var(--code-comment-color);
-  font-style: normal;
+code {
+  background: var(--code-background);
+  border-radius: 5px;
 }
-em {
-  border-bottom: 1px solid var(--blockquote-border-color); 
+.remark-code,
+.remark-inline-code {
+  font-family: "Hack Nerd Font Mono";
+  font-size: var(--code-size);
+  background-color: var(--mark-color)
 }
-
-
-/* Layout */
-
-blockquote {
-  display: block;
-  color: var(--secondary);
-  margin: var(--typography-spacing-vertical) 0;
-  padding-left: var(--spacing);
-  padding-bottom: calc(var(--spacing) * 0.15);
-  padding-top: calc(var(--spacing) * 0.15);
-  border-right: none;
-  border-left: 0.25rem solid var(--blockquote-border-color);
-  border-inline-start: 0.25rem solid var(--blockquote-border-color);
-  border-inline-end: none;
+.remark-code-line-highlighted {
+  background-color: var(--mark-color);
 }
 
+.pull-left {
+  float: left;
+  width: 47%;
+}
+.pull-right {
+  float: right;
+  width: 47%;
+}
+.pull-right ~ p {
+  clear: both;
+}
+#slideshow .slide .content code {
+  font-size: 0.8em;
+}
+#slideshow .slide .content pre code {
+  font-size: 0.9em;
+  padding: 15px;
+}
+.inverse {
+  background: var(--background-color-darker);
+  color: var(--contrast);
+  text-shadow: 0 0 20px #333;
+}
+.inverse h1,
+.inverse h2 {
+  color: var(--color);
+  line-height: 0.8em;
+}
+
+/* Slide-specific styling */
+#slide-inverse .footnote {
+  bottom: 12px;
+  left: 20px;
+}
+#slide-how .slides {
+  font-size: 0.9em;
+  position: absolute;
+  top: 151px;
+  right: 140px;
+}
+#slide-how .slides h3 {
+  margin-top: 0.2em;
+}
+#slide-how .slides .first,
+#slide-how .slides .second {
+  padding: 1px 20px;
+  height: 90px;
+  width: 120px;
+  -moz-box-shadow: 0 0 10px #777;
+  -webkit-box-shadow: 0 0 10px #777;
+  box-shadow: 0 0 10px #777;
+}
+#slide-how .slides .first {
+  background: #fff;
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  z-index: 1;
+}
+#slide-how .slides .second {
+  position: relative;
+  background: #fff;
+  z-index: 0;
+}
+
+/* Two-column layout */
+.left-column {
+  color: #777;
+  width: 20%;
+  height: 92%;
+  float: left;
+}
+.left-column h2:last-of-type,
+.left-column h3:last-child {
+  color: var(--primary);
+}
+.right-column {
+  width: 75%;
+  float: right;
+  padding-top: 1em;
+}
+
+/* presenter notes */
+.remark-notes-area {
+    background: var(--background-color);
+    color: var(--color);
+}
