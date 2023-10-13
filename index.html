@@ -8,7 +8,7 @@
       @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
       @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
     </style>
-    <link rel="stylesheet" type="text/css" href="./default.css" />
+    <link rel="stylesheet" type="text/css" href="./combined.css" />
   </head>
   <body>
     <textarea id="source">
@@ -130,8 +130,8 @@ Have a look at the [Markdown website](http://daringfireball.net/projects/markdow
 ---
 .left-column[
   ## How does it work?
-  ### - Markdown
-  ### - Inside HTML
+  ### Markdown
+  ### Inside HTML
 ]
 .right-column[
 A simple HTML document is needed for hosting the styles, Markdown and the generated slides themselves:
@@ -358,7 +358,7 @@ Slideshow created using [remark](http://github.com/gnab/remark).
     <script src="remark.language.js"></script>
     <script>
       var slideshow = remark.create({
-          highlightStyle: 'monokai',
+          highlightStyle: 'ir-black',
           highlightLanguage: 'remark',
           highlightLines: true
         }) ;
